@@ -1,6 +1,5 @@
 import streamlit as st
 import plotly.graph_objects as go 
-import plotly.express as px
 import pandas as pd
 import numpy as np
 from streamlit_option_menu import option_menu
@@ -368,12 +367,14 @@ if nav == "Frontline Showdown":
             font=dict(size=11),
         ),
         xaxis=dict(
-            showgrid=True,
-            gridcolor="rgba(255,255,255,0.05)",
-            tickfont=dict(family="Space Mono", size=10),
-            title="Goals + Assists",
-            titlefont=dict(size=11),
+        showgrid=True,
+        gridcolor="rgba(255,255,255,0.05)",
+        tickfont=dict(family="Space Mono", size=10),
+        title=dict(
+            text="Goals + Assists",
+            font=dict(size=11)
         ),
+    ),
         yaxis=dict(
             tickfont=dict(family="DM Sans", size=13),
             categoryorder="total ascending",
@@ -540,6 +541,7 @@ elif nav == "Performance Trend":
     """, unsafe_allow_html=True)
 
     # Data 
+    
     
     df_monthly = pd.read_csv("data/monthly_performance.csv")
 
